@@ -77,3 +77,19 @@ int Evklidos(int a, int b){
     printf("a*%d + b*%d\n",x,y);
     return x,y;
 }
+//Евклид для n чисел
+int EvklidNodArray(int *a, int n){
+
+   int i;
+   int g,c;
+   if (n < 1)
+   	  return 0;
+   printf("look end 2 numbers\n");
+   g = a[0];
+   for (i = 1; i<n; ++i){
+   	  Evklidos(g,a[i]);
+  	  g = gcd(g,a[i]);
+   }
+   
+   return g;
+}
