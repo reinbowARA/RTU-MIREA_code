@@ -81,10 +81,10 @@ int Evklidos(int a, int b){
 int EvklidNodArray(int *a, int n){
 
    int i;
-   int g,c;
+   int g;
    if (n < 1)
    	  return 0;
-   printf("look end 2 numbers\n");
+   printf("output\n");
    g = a[0];
    for (i = 1; i<n; ++i){
    	  Evklidos(g,a[i]);
