@@ -96,14 +96,13 @@ float lambda(float *a,float *b, unsigned int n){
 }
 
 float** Gram(float** a, unsigned int n,unsigned int m){
-	float *c, *g,*b,*Y,*d,*proj;
+	float *c, *g,*b,*Y,*d;
 	int k=2,i;
 	b = (float*)malloc(m*sizeof(float));
 	c = (float*)malloc(m* sizeof(float));
 	g = (float*)malloc(m* sizeof(float));
 	Y = (float*)malloc(m* sizeof(float));
 	d = (float*)malloc(m* sizeof(float));
-	proj = (float*)malloc(m* sizeof(float));;
 	printf ("enter numbers vector: ");
 	scanf ("%d", &n);//число столбцов
 	printf ("enter razmer matrix: ");
