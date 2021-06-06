@@ -4,6 +4,11 @@
 float** add_matrix(float** a,float** b, unsigned int n,unsigned int m){
 	int i, j; 
 	float **c;
+	printf("enter strok matrix: ");
+	scanf("%d", &n);
+	printf("enter colons matrix: ");
+	scanf("%d", &m);
+	printf ("\n");
 	c = (float**)malloc(n*sizeof(float*));
 	for(i = 0; i<n ; i++){
 		c[i]=(float*)malloc(m* sizeof(float));
@@ -79,6 +84,11 @@ float** add_matrix(float** a,float** b, unsigned int n,unsigned int m){
 float** sub_matrix(float** a,float** b, unsigned int n,unsigned int m){
 	int i, j; 
 	float **c;
+	printf("enter strok matrix: ");
+	scanf("%d", &n);
+	printf("enter colons matrix: ");
+	scanf("%d", &m);
+	printf ("\n");
 	c = (float**)malloc(n*sizeof(float*));
 	for(i = 0; i<n ; i++){
 		c[i]=(float*)malloc(m* sizeof(float));
@@ -155,6 +165,13 @@ float** sub_matrix(float** a,float** b, unsigned int n,unsigned int m){
 float** mul_matrix(float** a, float** b, unsigned int n, unsigned int m, unsigned int k) {
 	int i, j; 
 	float **c;
+	printf("enter strok matrix a: ");
+	scanf("%d", &n);
+	printf("enter colons matrix a and strok matrix b: ");
+	scanf("%d", &m);
+	printf("enter colons matrix b: ");
+	scanf("%d", &k);
+	printf ("\n");
 	c = (float**)malloc(n*sizeof(float*));
 	for(i = 0; i<n ; i++){
 		c[i]=(float*)malloc(k* sizeof(float));
@@ -248,6 +265,8 @@ float det(float **mas, int m) {
   int i, j, k, n;
   float d;
   // ввод матрицы ---------------------
+  printf ("enter razmer matrix: ");
+  scanf ("%d", m);
   mas = (float**)malloc(m*sizeof(float*));
   for (i = 0; i<m; i++) {
     mas[i] = (float*)malloc(m*sizeof(float));
@@ -265,17 +284,21 @@ float det(float **mas, int m) {
   k = 1; //(-1) в степени i
   n = m - 1;
   if (m<1) printf("determenant impossibly");
+  //для матрицы размера 1х1
   if (m == 1) {
     d = mas[0][0];
     return(d);
   }
+  //для матрицы размера 2х2
   if (m == 2) {
     d = mas[0][0] * mas[1][1] - (mas[1][0] * mas[0][1]);
     return(d);
   }
+  //3х3 и выше
   if (m>2) {
     for (i = 0; i<m; i++) {
-      GetMatr(mas, p, i, 0, m);//mas - заданная матрица, p - "пустая" матрица , i - строка , j - столбец, m -размер матрицы
+      GetMatr(mas, p, i, 0, m);
+	  //mas - заданная матрица, p - "пустая" матрица , i - строка , j - столбец, m -размер матрицы
       printf("%f", mas[i][j]);
       d = d + k * mas[i][0] * det(p, n);
       k = -k;
@@ -289,7 +312,9 @@ float det(float **mas, int m) {
 //обратная матрица
 float** obrMatr(float **M, int N){
  float **obr;	  
- int i, j,k;	
+ int i, j,k;
+ printf ("enter razmer matrix: ");
+ scanf ("%d", &N);	
  M = (float**)malloc(N*sizeof(float*));	
  for(i=0; i<N; i++){
  M[i]= (float*)malloc(N*sizeof(float));
@@ -335,7 +360,7 @@ printf("\nObr matrix: \n");
 for(i=0; i<N; i++)
  {
   for(j=0; j<N; j++)
-   printf("%7.3f",M[i][j]);
+   printf("%7.3g",M[i][j]);
   printf("\n");
  }
  
