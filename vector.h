@@ -1,7 +1,14 @@
 #include <stdio.h>
-float* add_vector(float *a,float *b,unsigned int length){//сложение векторов
+#include <stdlib.h>
+#include <math.h>
+//сложение векторов
+float* add_vector(float *a,float *b,unsigned int length){
     int i;
-	float c[i];
+	float *c;
+	printf ("enter line vector: ");
+	scanf ("%d", &length);
+	printf ("\n");
+	c = (float*)malloc(length*sizeof(float));
     for(i=0; i<length; i++){
         printf("a[%d] = ", i);
         scanf("%f",&a[i]);
@@ -16,10 +23,16 @@ float* add_vector(float *a,float *b,unsigned int length){//сложение ве
 	for(i=0;i<length;i++){
 		printf("%g ",c[i]);
 	}
+	return c;
 }
- float* sub_vector(float* a, float* b, unsigned int length){//вычитание
+ //вычитание
+float* sub_vector(float* a, float* b, unsigned int length){
 	int i;
-	float c[i];
+	float *c;
+	printf ("enter line vector: ");
+	scanf ("%d", &length);
+	printf ("\n");	
+	c = (float*)malloc(length*sizeof(float));
     for(i=0; i<length; i++){
         printf("a[%d] = ", i);
         scanf("%f",&a[i]);
@@ -34,10 +47,17 @@ float* add_vector(float *a,float *b,unsigned int length){//сложение ве
 	for(i=0;i<length;i++){
 		printf("%g ",c[i]);
 	}
+	return c;
  }
- float* scale(float* a, float k, unsigned int n){ // умножение вектора на скаляр
+// умножение вектора на скаляр
+float* scale(float* a, float k, unsigned int n){ 
     int i;
-	float c[i];
+	float *c;
+	printf ("enter line vector: ");
+	scanf ("%d", &n);
+	printf ("enter number: ");
+	scanf ("%f", &k);	
+	c = (float*)malloc(n*sizeof(float));
     for ( i = 0;i<n;i++){	      	            
         printf("a[%d] = ", i);
         scanf("%f",&a[i]);
@@ -47,10 +67,15 @@ float* add_vector(float *a,float *b,unsigned int length){//сложение ве
 	}
 	for ( i=0; i<n ; i++){
 		printf("%g ",c[i]);
-	}	
+	}
+	return c;	
 }
+//модуль вектора
 float module_vector(float* a, unsigned int n){
 	float mod = 0;
+	printf ("enter line vector: ");
+	scanf ("%d", &n);
+	a = (float*)malloc(n*sizeof(float));
 	for(int i = 0; i< n; i++){
 		printf("a[%d] = ", i);
  		scanf("%f", &a[i]);
@@ -58,11 +83,14 @@ float module_vector(float* a, unsigned int n){
 	for(int i = 0; i< n; i++){
         mod += pow(a[i],2);
 	}
+	printf ("%g", sqrt(mod));
 	return sqrt(mod);
 }
 //скалярное произведение векторов
 float dotp(float* a, float* b, unsigned int n){
 	float *c,r=0;
+	printf ("enter line vector: ");
+	scanf ("%d", &n);
 	c = (float*)malloc(n * sizeof(float));
 	a = (float*)malloc(n * sizeof(float));
 	b = (float*)malloc(n * sizeof(float));
@@ -82,7 +110,7 @@ float dotp(float* a, float* b, unsigned int n){
 	printf ("%2g", r);	
 	return r;
 }
-// ортогональность по Граму-Шмидту (не работает с матрицами выше 3х3)
+//ортогональность Грама-Шмидта
 float lambda(float *a,float *b, unsigned int n){
 	float r,Y;
 	r = 0;
@@ -95,7 +123,7 @@ float lambda(float *a,float *b, unsigned int n){
 	return Y;
 }
 
-float** Gram(float** a, unsigned int n,unsigned int m){
+float* Gram(float** a, unsigned int n,unsigned int m){
 	float *c, *g,*b,*Y,*d;
 	int k=2,i;
 	b = (float*)malloc(m*sizeof(float));
@@ -162,5 +190,5 @@ float** Gram(float** a, unsigned int n,unsigned int m){
 		}
 		printf ("\n");	 
 	}
-	
+	return c;	
 }
